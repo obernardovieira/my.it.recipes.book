@@ -1,0 +1,85 @@
+\documentclass{article}
+%code
+\usepackage{listings}
+%images
+\usepackage{graphicx}
+%quotes
+\usepackage{csquotes}
+%colors
+\usepackage{color}
+%textbox
+\usepackage{tcolorbox}
+%encoding
+%--------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%--------------------------------------
+ 
+%Portuguese-specific commands
+%--------------------------------------
+\usepackage[portuguese]{babel}
+%--------------------------------------
+ 
+%Hyphenation rules
+%--------------------------------------
+\usepackage{hyphenat}
+\hyphenation{mate-mática recu-perar}
+%--------------------------------------
+
+\definecolor{lightgray}{RGB}{201,201,201}
+
+\begin{document}
+
+\title{Bem-vindo ao meu livro}
+\author{Bernardo Vieira}
+
+\maketitle
+
+\begin{abstract}
+Obrigado a quem ainda não agradeci.
+\end{abstract}
+
+\section{Introdução}
+Mais tarde escrevo uma introdução.
+
+\section{LaTeX}
+
+\subsection{Escrever código Latex}
+
+\begin{lstlisting}[language=TeX]
+\*begin{lstlisting}[language=TeX]
+\documentclass{article}
+\begin{document}
+    Hello World
+\end{document}
+\*end{lstlisting}
+\end{lstlisting}
+
+Para além de latex suporta:\newline
+\begin{tcolorbox}
+ABAP (R/2 4.3, R/2 5.0, R/3 3.1, R/3 4.6C, R/3 6.10),
+ACSL Ada (83, 95), Algol (60, 68), Ant, Assembler
+(x86masm), Awk (gnu, POSIX), bash, Basic (Visual),
+C (ANSI, Handel, Objective, Sharp), C++ (ANSI, GNU,
+ISO, Visual), Caml (light, Objective), Clean, Cobol
+(1974, 1985, ibm), Comal 80, csh, Delphi, Eiffel,
+Elan, erlang, Euphoria, Fortran (77, 90, 95), GCL,
+Gnuplot, Haskell, HTML, IDL (empty, CORBA), inform,
+Java (empty, AspectJ), JVMIS, ksh, Lisp (empty, Auto),
+Logo, make (empty, gnu), Mathematica (1.0, 3.0),
+Matlab, Mercury, MetaPost, Miranda, Mizar, ML,
+Modula-2, MuPAD, NASTRAN, Oberon-2, OCL (decorative,
+OMG), Octave, Oz, Pascal (Borland6, Standard, XSC),
+Perl,PHP, PL/I,Plasm, POV,Prolog, Promela,Python,
+R,Reduce, Rexx,RSL, Ruby, S (empty, PLUS), SAS,
+Scilab, sh, SHELXL, Simula (67, CII, DEC, IBM),
+SQL, tcl (empty, tk), TeX (AlLaTeX, common, LaTeX,
+plain, primitive), VBScript, Verilog, VHDL (empty,
+AMS), VRML (97), XML, XSLT.
+\end{tcolorbox}
+
+
+\section{Conclusão}
+Foi um prazer.
+
+\end{document}
