@@ -80,13 +80,22 @@ Mais tarde escrevo uma introdução.
 \chapter{vitualization}
 \section{virtualbox}
 \section{docker}
-\subsection{add parameters to a docker container}
+\subsection{Copy volumes from older containers}
 \begin{displayquote}
 \$ docker stop my-container \newline
 \$ docker rename my-container my-old-container \newline
 \$ docker run --volumes-from=my-old-container --restart always myimage \newline
 \$ docker rm my-old-container
 \end{displayquote}
+\subsection{Volumes to a specific folder}
+\begin{displayquote}
+\$ docker run -v path/at/host:path/inside/container/folder my-image \newline
+\end{displayquote}
+\subsection{Look for volumes}
+\begin{displayquote}
+\$ docker inspect my-image \newline
+\end{displayquote}
+\lstinputlisting[language=Bash]{files/docker_volume_mount.sh}
 
 \chapter{cloud}
 \section{azure}
@@ -146,6 +155,14 @@ SQL, tcl (empty, tk), TeX (AlLaTeX, common, LaTeX,
 plain, primitive), VBScript, Verilog, VHDL (empty,
 AMS), VRML (97), XML, XSLT.
 \end{tcolorbox}
+
+\subsection{No new page when new chapter begins}
+\begin{lstlisting}[language=TeX]
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+\end{lstlisting}
 
 \section{markdown}
 
