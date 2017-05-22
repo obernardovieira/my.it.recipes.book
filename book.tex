@@ -163,6 +163,16 @@ AMS), VRML (97), XML, XSLT.
 \subsection{simples}
 \subsection{2factor}
 
+\section{version control}
+\subsection{git}
+\subsubsection{rebase from another master}
+\begin{lstlisting}[language=Bash]
+$ git remote add other <url>
+$ git fetch other
+$ git rebase other/master master
+$ git push
+\end{lstlisting}
+
 \section{The End}
 It's been a pleasure.
 
