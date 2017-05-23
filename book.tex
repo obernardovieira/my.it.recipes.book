@@ -27,12 +27,14 @@
 \author{Bernardo Vieira}
 
 \maketitle
-
 \begin{abstract}
 Thanks to the people I haven't thanked yet.
 \end{abstract}
+\clearpage
+\tableofcontents
+\clearpage
 
-\section{Introduction}
+\chapter{Introduction}
 Lately I will introduce myself.
 
 \chapter{games}
@@ -59,14 +61,11 @@ Lately I will introduce myself.
 \section{c}
 \subsection{circular dependency}
 
-\section{c++}
-\subsection{circular dependency}
-
 \section{assembly}
 \subsection{registry (and everything else)}
 
 
-\chapter{fromeworks}
+\chapter{frameworks}
 \section{nodejs}
 \section{rails}
 
@@ -95,6 +94,8 @@ Lately I will introduce myself.
 
 \chapter{ci/cd}
 \section{jenkins}
+\section{travis}
+\section{travis}
 
 \chapter{linux}
 \section{commands}
@@ -163,23 +164,39 @@ AMS), VRML (97), XML, XSLT.
 \subsection{ssh}
 \subsection{gpg}
 
+\chapter{Authentication}
 \section{oauth}
 \begin{chapquote}{Wikipédia, \textit{https://en.wikipedia.org/wiki/OAuth}}
 OAuth is an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords.
 \end{chapquote}
 \subsection{Simple}
-\subsection{2FA}
+% TODO stuff
 \subsection{MFA}
+\begin{chapquote}{Wikipédia, \textit{https://en.wikipedia.org/wiki/Multi-factor\_authentication}}
+Multi-factor authentication (MFA) is a method of computer access control in which a user is granted access only after successfully presenting several separate pieces of evidence to an authentication mechanism – typically at least two of the following categories: knowledge (something they know), possession (something they have), and inherence (something they are).
+\end{chapquote}
+\subsection{2FA}
+\begin{chapquote}{Wikipédia, \textit{https://en.wikipedia.org/wiki/Multi-factor\_authentication}}
+Two-factor authentication (also known as 2FA) is a method of confirming a user's claimed identity by utilizing a combination of two different components. Two-factor authentication is a type of multi-factor authentication.
+\end{chapquote}
+It's really common to see this kind of authentication nowadays. But how this works and how can we create an app that connects to a social network where we have \textit{2FA} activated. Let's see how I've done this.\newline
+% TODO stuff
 
-\section{version control}
+\chapter{version control}
 \begin{chapquote}{Wikipédia, \textit{https://en.wikipedia.org/wiki/Version\_control}}
 A component of software configuration management, version control, also known as revision control or source control, is the management of changes to documents, computer programs, large web sites, and other collections of information.
 \end{chapquote}
-\subsection{git}
+\section{git}
 \begin{chapquote}{Wikipédia, \textit{https://en.wikipedia.org/wiki/Git}}
 Git is a version control system (VCS) for tracking changes in computer files and coordinating work on those files among multiple people. It is primarily used for software development, but it can be used to keep track of changes in any set of files. As a distributed revision control system it is aimed at speed, data integrity, and support for distributed, non-linear workflows.
 \end{chapquote}
-\subsubsection{Rebase from another master}
+\subsection{Basic usage}
+% TODO stuff
+
+\subsection{Branches}
+% TODO stuff
+
+\subsection{Rebase from another master}
 Sometimes our project is a fork of another project. It's really common to happen, especially on GitHub where there is a lot of people forking others projects.\newline
 But then, there is a problem, if you cant control de remote repository in your account like it's in your computer, how do you update it? It's easy: 
 \begin{lstlisting}[language=Bash]
@@ -189,7 +206,7 @@ $ git rebase other/master master
 $ git push
 \end{lstlisting}
 
-\section{The End}
+\chapter{The End}
 It's been a pleasure.
 
 \end{document}
