@@ -1,19 +1,23 @@
 \documentclass{report}
-%code
 \usepackage{listings}
-%images
 \usepackage{graphicx}
-%quotes
 \usepackage{csquotes}
-%colors
 \usepackage{color}
-%textbox
 \usepackage{tcolorbox}
-%encoding
 %--------------------------------------
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 %--------------------------------------
+
+\makeatletter
+\renewcommand{\@chapapp}{}% Not necessary...
+\newenvironment{chapquote}[2][2em]
+  {\setlength{\@tempdima}{#1}%
+   \def\chapquote@author{#2}%
+   \parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+   \itshape}
+  {\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
 
 \definecolor{lightgray}{RGB}{201,201,201}
 
@@ -160,12 +164,24 @@ AMS), VRML (97), XML, XSLT.
 \subsection{gpg}
 
 \section{oauth}
-\subsection{simples}
-\subsection{2factor}
+\begin{chapquote}{Wikipédia, \textit{https://en.wikipedia.org/wiki/OAuth}}
+OAuth is an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords.
+\end{chapquote}
+\subsection{Simple}
+\subsection{2FA}
+\subsection{MFA}
 
 \section{version control}
+\begin{chapquote}{Wikipédia, \textit{https://en.wikipedia.org/wiki/Version\_control}}
+A component of software configuration management, version control, also known as revision control or source control, is the management of changes to documents, computer programs, large web sites, and other collections of information.
+\end{chapquote}
 \subsection{git}
-\subsubsection{rebase from another master}
+\begin{chapquote}{Wikipédia, \textit{https://en.wikipedia.org/wiki/Git}}
+Git is a version control system (VCS) for tracking changes in computer files and coordinating work on those files among multiple people. It is primarily used for software development, but it can be used to keep track of changes in any set of files. As a distributed revision control system it is aimed at speed, data integrity, and support for distributed, non-linear workflows.
+\end{chapquote}
+\subsubsection{Rebase from another master}
+Sometimes our project is a fork of another project. It's really common to happen, especially on GitHub where there is a lot of people forking others projects.\newline
+But then, there is a problem, if you cant control de remote repository in your account like it's in your computer, how do you update it? It's easy: 
 \begin{lstlisting}[language=Bash]
 $ git remote add other <url>
 $ git fetch other
