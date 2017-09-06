@@ -90,18 +90,6 @@
 
 \bibliography{Chapter/references}
 
-\makeatletter
-\renewcommand{\@chapapp}{}% Not necessary...
-\newenvironment{chapquote}[2][2em]
-  {\setlength{\@tempdima}{#1}%
-   \def\chapquote@author{#2}%
-   \parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
-   \itshape}
-  {\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
-\makeatother
-
-\definecolor{lightgray}{RGB}{201,201,201}
-
 
 \begin{document}
 
@@ -120,7 +108,6 @@
 \vspace*{\fill}
 \end{titlepage}
 
-\maketitle
 
 \begin{abstract}
 Thanks to the people I haven't thanked yet.
