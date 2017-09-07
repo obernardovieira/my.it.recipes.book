@@ -1,117 +1,10 @@
 \documentclass{report}
-\usepackage{graphicx}
-\usepackage{subfig}
-\usepackage{csquotes}
-\usepackage[hidelinks]{hyperref}
-\usepackage{mdwlist}
-\usepackage[titletoc]{appendix}
-\usepackage[backend=biber,sorting=none]{biblatex}
-%\addbibresource{references.bib}
-\usepackage{fancyhdr}
-%glossaries
-\usepackage[acronym,shortcuts,nopostdot,style=super,nonumberlist,toc]{glossaries}
-\usepackage{glossaries-extra}
-%textbox
-\usepackage{tcolorbox}
-%encoding
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-%Portuguese-specific commands
-\usepackage[portuguese]{babel}
-%Hyphenation rules
-\usepackage{hyphenat}
-\hyphenation{mate-mática recu-perar}
-\usepackage{everypage}
-%
-\usepackage{xstring}
-\usepackage{listings}
-
-
-\makeatletter
-\renewcommand
-   {\appendixtocname}{Ap\^{e}ndices}
- \renewcommand
-   {\appendixpagename}{Ap\^{e}ndices}
- \renewcommand
-   {\appendixname}{Ap\^{e}ndice} \let\oriAlph\Alph
- \let\orialph\alph
- \renewcommand{\@resets@pp}
-   {\par\@ppsavesec
-     \stepcounter{@pps}%
-     \setcounter{section}{0}%
-     \if@chapter@pp
-       \setcounter{chapter}{0}%
-       \renewcommand\@chapapp{\appendixname}%
-       \renewcommand\thechapter{\@Alph\c@chapter}%
-     \else
-       \setcounter{subsection}{0}%
-       \renewcommand\thesection{\@Alph\c@section}%
-     \fi
-     \if@pphyper
-       \if@chapter@pp
-         \renewcommand
-           {\theHchapter}
-           {\theH@pps.\oriAlph{chapter}}%
-       \else
-         \renewcommand
-           {\theHsection}
-           {\theH@pps.\oriAlph{section}}%
-       \fi
-       \def\Hy@chapapp
-          {appendix}%
-     \fi
-   \restoreapp
-  }
-\makeatother
-
-
-
-
-
-\makeatletter
-\renewcommand{\@chapapp}{}% Not necessary...
-\newenvironment{chapquote}[2][2em]
-  {\setlength{\@tempdima}{#1}%
-   \def\chapquote@author{#2}%
-   \parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
-   \itshape}
-  {\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
-\makeatother
-
-
-
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[LE,RO]{\leftmark}
-\fancyfoot[LE,RO]{\thepage}
-\renewcommand{\headrulewidth}{0.2pt}
-\renewcommand{\footrulewidth}{0pt}
-
-
-\bibliography{Chapter/references}
+\input{config}
 
 
 \begin{document}
-
-\begin{titlepage}
-\vspace*{\fill}
-\begin{center}
-{\fontsize{50}{60}\selectfont My IT Recipes}\\[0.5cm]
-\begin{figure}[h]
-\begin{center}
-\includegraphics[scale=0.5]{Figs/brain.jpg}
-\end{center}
-\end{figure}
-\vspace{4em}
-\textsc{\Large Bernardo Vieira}\\[1em]
-\end{center}
-\vspace*{\fill}
-\end{titlepage}
-
-
-\begin{abstract}
-Thanks to the people I haven't thanked yet.
-\end{abstract}
+\input{Chapters/cover}
+\input{Chapters/abstract}
 \clearpage
 \tableofcontents
 \clearpage
@@ -151,25 +44,8 @@ Lately I will introduce myself.
 \section{nodejs}
 \section{rails}
 
-\chapter{vitualization}
-\section{virtualbox}
-\section{docker}
-\subsection{Copy volumes from older containers}
-\begin{displayquote}
-\$ docker stop my-container \newline
-\$ docker rename my-container my-old-container \newline
-\$ docker run --volumes-from=my-old-container --restart always myimage \newline
-\$ docker rm my-old-container
-\end{displayquote}
-\subsection{Volumes to a specific folder}
-\begin{displayquote}
-\$ docker run -v path/at/host:path/inside/container/folder my-image \newline
-\end{displayquote}
-\subsection{Look for volumes}
-\begin{displayquote}
-\$ docker inspect my-image \newline
-\end{displayquote}
-\lstinputlisting[language=Bash]{Chapters/docker_volume_mount.sh}
+\input{Chapters/Virtualization/virtualization}
+
 
 \chapter{cloud}
 \section{azure}

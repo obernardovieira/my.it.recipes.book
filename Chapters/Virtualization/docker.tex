@@ -1,0 +1,17 @@
+\section{docker}
+\subsection{Copy volumes from older containers}
+\begin{displayquote}
+\$ docker stop my-container \newline
+\$ docker rename my-container my-old-container \newline
+\$ docker run --volumes-from=my-old-container --restart always myimage \newline
+\$ docker rm my-old-container
+\end{displayquote}
+\subsection{Volumes to a specific folder}
+\begin{displayquote}
+\$ docker run -v path/at/host:path/inside/container/folder my-image \newline
+\end{displayquote}
+\subsection{Look for volumes}
+\begin{displayquote}
+\$ docker inspect my-image \newline
+\end{displayquote}
+\lstinputlisting[language=Bash]{Chapters/docker_volume_mount.sh}
