@@ -1,0 +1,49 @@
+\subsection{mongo}
+mongodb é uma base de dados de código aberto, de alto desempenho e orientada a documentos. Escrito em C++.\newline \\
+\textbf{Links Uteis}:
+\begin{itemize}
+\item \url{https://github.com/mongodb/mongo}
+\item \url{https://www.mongodb.com/}
+\end{itemize}
+
+\subsubsection{Database Manager}
+Robomongo é uma ferramenta nativa, de código aberto, utilizada para a manutenção de uma base de dados mongo.\newline \\
+\textbf{Links Uteis}:
+\begin{itemize}
+\item \url{https://github.com/Studio3T/robomongo}
+\item \url{https://robomongo.org/}
+\end{itemize}
+Pode agora criar-se uma base de dados e um utilizadores para controlar essa base de dados, obrigando a uma autenticação prévia, para uso da mesma.\newline
+Por padrão, uma base de dados mongo não tem qualquer utilizador nem senha, sendo possível conectar ao servidor mongo e criar uma base de dados e um utilizador para a mesma. É possivel ter várias bases de dados, com utilizadores diferentes com permissões diferentes.
+\paragraph{Na primeira utilização}
+Utilizando robomongo, na primeira utilização cria-se uma ligação inserindo apenas o endereço (exemplo "localhost:27017").
+\paragraph{Utilizador padrão}
+Depois da ligação efetuada, à esquerda é apresentado o nome da ligação e o que existe nessa base de dados mongo que pode ser apresentado de acordo com a autenticação. Neste caso é apresentado tudo pois não existe qualquer restrição. Para isso, utilizando a base de dados \textit{admin} cria-se um utilizador com permissões \textit{root}.\newline \\
+Sobre o nome da ligação, clica-se com o lado direito do cursor e após escolher a opção \textit{open shell}, usa-se um código como o apresentado de seguida:
+\begin{lstlisting}[style=json]
+use admin
+db.createUser(
+  {
+    user: "myUserAdmin",
+    pwd: "abc123",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+  }
+)
+\end{lstlisting}
+Posteriormente podem ser criadas bases de dados, com uma autenticação diferente, como por exemplo
+\begin{lstlisting}[style=json]
+use mysoft
+db.createUser(
+  {
+    user: "myUserAdmin",
+    pwd: "abc123",
+    roles: [ { role: "dbOwner", db: "mysoft" } ]
+  }
+)
+\end{lstlisting}
+\textit{mysoft} é uma base de dados que não existe mas irá ser criada (porém não apresentada na sessão atual) e logo de seguida adicionado um utilizador com o papel de dono da base de dados.\newline \\
+Outras formas de criar utilizadores e papéis, podem ser vistos em:
+\begin{itemize}
+\item \url{https://docs.mongodb.com/manual/tutorial/create-users/}
+\item \url{https://docs.mongodb.com/manual/reference/built-in-roles/#built-in-roles}
+\end{itemize}
