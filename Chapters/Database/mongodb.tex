@@ -57,7 +57,7 @@ Drivers em mongo têm o mesmo objetivo que em qualquer outra base de dados. Eles
 Esta base de dados é composta em primeiro lugar por bases de dados e posteriormente por coleções e depois documentos. Uma possivel analogia seria, um armazem (o sistema) devidido em salas (as bases de dados) que contêm caixas (coleções) onde se guardam documentos (os documentos). Cada documento, no momento em que é criado é gerado um código md5 servido como id.\newline \\
 As pesquisas podem ser feitas por qualquer parâmetro, é possivel pesquisar apenas por um elemento ou por vários, tal como para inserir, atualizar ou apagar.\newline
 De seguida são apresentados alguns exemplos, utilizando a framework nodejs.
-\begin{lstlisting}[language=javascript]
+\begin{lstlisting}[language=java]
 const MongoClient = require('mongodb').MongoClient
 const test = require('assert');
 const url = 'mongodb://localhost:27017/test'
