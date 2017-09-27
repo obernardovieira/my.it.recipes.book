@@ -16,7 +16,7 @@ Robomongo é uma ferramenta nativa, de código aberto, utilizada para a manuten�
 Pode agora criar-se uma base de dados e um utilizadores para controlar essa base de dados, obrigando a uma autenticação prévia, para uso da mesma.\newline
 Por padrão, uma base de dados mongo não tem qualquer utilizador nem senha, sendo possível conectar ao servidor mongo e criar uma base de dados e um utilizador para a mesma. É possivel ter várias bases de dados, com utilizadores diferentes com permissões diferentes.
 \paragraph{Na primeira utilização}
-Utilizando robomongo, na primeira utilização cria-se uma ligação inserindo apenas o endereço (exemplo "localhost:27017").
+Utilizando robomongo, na primeira utilização cria-se uma ligação inserindo apenas o endereço (exemplo "\textit{localhost:27017}").
 \paragraph{Utilizador padrão}
 Depois da ligação efetuada, à esquerda é apresentado o nome da ligação e o que existe nessa base de dados mongo que pode ser apresentado de acordo com a autenticação. Neste caso é apresentado tudo pois não existe qualquer restrição. Para isso, utilizando a base de dados \textit{admin} cria-se um utilizador com permissões \textit{root}.\newline \\
 Sobre o nome da ligação, clica-se com o lado direito do cursor e após escolher a opção \textit{open shell}, usa-se um código como o apresentado de seguida:
@@ -47,3 +47,30 @@ Outras formas de criar utilizadores e papéis, podem ser vistos em:
 \item \url{https://docs.mongodb.com/manual/tutorial/create-users/}
 \item \url{https://docs.mongodb.com/manual/reference/built-in-roles/#built-in-roles}
 \end{itemize}
+
+\subsubsection{Work}
+
+\paragraph{Drivers}
+Drivers em mongo têm o mesmo objetivo que em qualquer outra base de dados. Eles servem para fazer uma ligação entre a base de dados e uma determinada linguagem. Mongo tem disponivel exemplos para várias linguagens.
+
+\paragraph{Inside}
+Esta base de dados é composta em primeiro lugar por bases de dados e posteriormente por coleções e depois documentos. Uma possivel analogia seria, um armazem (o sistema) devidido em salas (as bases de dados) que contêm caixas (coleções) onde se guardam documentos (os documentos). Cada documento, no momento em que é criado é gerado um código md5 servido como id.\newline \\
+As pesquisas podem ser feitas por qualquer parâmetro, é possivel pesquisar apenas por um elemento ou por vários, tal como para inserir, atualizar ou apagar.\newline
+De seguida são apresentados alguns exemplos, utilizando a framework nodejs.
+\begin{lstlisting}[language=javascript]
+const MongoClient = require('mongodb').MongoClient
+const test = require('assert');
+const url = 'mongodb://localhost:27017/test'
+
+MongoClient.connect(url, function(err, db) {
+    var col = db.collection('yourCollectionName');
+    col.find({}).toArray(function(err, items) {
+        test.equal(null, err);
+        test.equal(4, items.length);
+        db.close();
+    });
+});
+\end{lstlisting}
+No exemplo apresentado é realizada uma conexão à base de dados \textit{test} que se encontra no sistema de base de dados, localizado no endereço \textit{localhost:27017}.\newline
+Depois é feita uma pesquisa pela coleção \textit{yourCollectionName} e são pesquisados dos os documentos.
+Para efetuar login com autenticação, só é necessário alterar o URL para \textit{mongodb://username:password@localhost:27017/database}.
