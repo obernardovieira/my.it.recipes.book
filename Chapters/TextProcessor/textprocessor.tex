@@ -1,24 +1,3 @@
 \chapter{text processors}
-\section{LaTeX}
-
-\subsection{Write code in Latex}
-
-\begin{lstlisting}[language=TeX]
-\*begin{lstlisting}[language=TeX]
-\documentclass{article}
-\begin{document}
-    Hello World
-\end{document}
-\*end{lstlisting}
-\end{lstlisting}
-
-
-\subsection{No new page when new chapter begins}
-\begin{lstlisting}[language=TeX]
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
-\makeatother
-\end{lstlisting}
-
-\section{markdown}
+\input{Chapters/TextProcessor/latex}
+\input{Chapters/TextProcessor/markdown}
