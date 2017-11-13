@@ -2,22 +2,5 @@
 \begin{chapquote}{Wikipédia, \textit{https://en.wikipedia.org/wiki/Version\_control}}
 A component of software configuration management, version control, also known as revision control or source control, is the management of changes to documents, computer programs, large web sites, and other collections of information.
 \end{chapquote}
-\section{git}
-\begin{chapquote}{Wikipédia, \textit{https://en.wikipedia.org/wiki/Git}}
-Git is a version control system (VCS) for tracking changes in computer files and coordinating work on those files among multiple people. It is primarily used for software development, but it can be used to keep track of changes in any set of files. As a distributed revision control system it is aimed at speed, data integrity, and support for distributed, non-linear workflows.
-\end{chapquote}
-\subsection{Basic usage}
-% TODO stuff
-
-\subsection{Branches}
-% TODO stuff
-
-\subsection{Rebase from another master}
-Sometimes our project is a fork of another project. It's really common to happen, especially on GitHub where there is a lot of people forking others projects.\newline
-But then, there is a problem, if you cant control de remote repository in your account like it's in your computer, how do you update it? It's easy:
-\begin{lstlisting}[language=Bash]
-$ git remote add other <url>
-$ git fetch other
-$ git rebase other/master master
-$ git push
-\end{lstlisting}
+\input{Chapters/VersionControl/git}
+\input{Chapters/VersionControl/subversion}
