@@ -1,20 +1,20 @@
 \section{docker}
 \subsection{Copy volumes from older containers}
-\begin{displayquote}
+Anytime you need to update the running stuff on your container. How to do? Update it, then create a new container using volumes from the older one.
+\begin{lstlisting}
 \$ docker stop my-container \newline
 \$ docker rename my-container my-old-container \newline
 \$ docker run --volumes-from=my-old-container --restart always myimage \newline
 \$ docker rm my-old-container
-\end{displayquote}
+\end{lstlisting}
 \subsection{Volumes to a specific folder}
-\begin{displayquote}
+Containers data doesn't live only inside containers, there is a copy of that on host machine. It's important to know where the containers volumes are for backup reasons!
+\begin{lstlisting}
 \$ docker run -v path/at/host:path/inside/container/folder my-image \newline
-\end{displayquote}
+\end{lstlisting}
 \subsection{Look for volumes}
-\begin{displayquote}
-\$ docker inspect my-image \newline
-\end{displayquote}
-\begin{lstlisting}[language=Bash]
+Don't know where a container is saving his data? Do "\textbf{docker inspect my-container}" and look at the answer
+\begin{lstlisting}[style=json]
 "Mounts": [
     {
         "Type": "volume",
@@ -26,5 +26,5 @@
         "RW": true,
         "Propagation": ""
     }
-],    
+],
 \end{lstlisting}

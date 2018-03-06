@@ -1,1 +1,5 @@
 \section{VirtualBox}
+\subsection{How to have ssh and internet access}
+When needed to connect to a VirtualBox machine through ssh and have access to internet, so realized it wasn't obvious. But still easy.
+It's necessary to have 2 network interfaces, one of them \textbf{nat} and the other one \textbf{hostonly}.\newline
+This way, it's possible to have access to the internet using the nat interface and at the same time, allow the possibility to connect through ssh. Even better, it's possible to make this machines IP fix, which make things even easier.
