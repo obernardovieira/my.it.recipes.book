@@ -1,0 +1,13 @@
+\section{linux}
+\subsection{commands}
+for files in `ls *.tex`; do mv \$files `echo \$files | sed s/oldname/newname/g`; done
+\subsection{bash}
+\begin{lstlisting}[language=sh]
+#!/bin/bash
+
+$1
+retval=$?
+if [ $retval -ne 0 ]; then
+        echo "A problem occured while running your command!"
+fi
+\end{lstlisting}
