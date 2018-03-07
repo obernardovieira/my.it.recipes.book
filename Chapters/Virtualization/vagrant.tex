@@ -1,0 +1,35 @@
+\section{Vagrant}
+\subsection{Multiple vagrant machines in same file}
+Right, it's really a mess when there is a few Vagrantfiles arround, because a Vagrantfile is allways a Vagrantfile, it doesn't either says the machine name or properties. So, add how machines machines are needed in only one Vagrantfile.
+\begin{lstlisting}
+Vagrant.configure("2") do |config|
+  config.vm.define "CortexUbuntuTrusty" do |web01|
+    web01.vm.box = "ubuntu/trusty64"
+    web01.vm.hostname = 'CortexUbuntuTrusty'
+  end
+  config.vm.define "CortexCentos7" do |db|
+    db.vm.box = "centos/7"
+    db.vm.hostname = 'CortexCentos7'
+  end
+end
+\end{lstlisting}
+
+\subsection{VirtualBox properties}
+Consider some Vagrantfile will allways be run using VirtualBox. Way not say a few other options?
+\begin{lstlisting}
+Vagrant.configure("2") do |config|
+  config.vm.define "CortexUbuntuTrusty" do |web01|
+    web01.vm.box = "ubuntu/trusty64"
+    web01.vm.hostname = 'CortexUbuntuTrusty'
+
+    web01.vm.network :private_network, ip: "192.168.56.25"
+    web01.vm.network :forwarded_port, guest: 22, host: 10122, id: "ssh"
+
+    web01.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--name", "CortexCentos7"]
+      v.customize ["modifyvm", :id, "--memory", 512]
+      v.customize ["modifyvm", :id, "--cpus", 1]
+    end
+  end
+end
+\end{lstlisting}
